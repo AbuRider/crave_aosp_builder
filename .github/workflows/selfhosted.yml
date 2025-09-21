@@ -31,30 +31,31 @@ on:
       BUILD_DIFFERENT_ROM:
         description: "Command to initialize a different 'repo' project:"
         required: false
-        default: "echo 'Build Starting!'"
+        default: "repo init -u https://github.com/AbuRider/android_manifest_matrixx.git -b 14.0 --git-lfs"
       REMOVALS:
         description: "Folders to be removed before syncing:"
         required: false
+        default: "prebuilts/clang/host/linux-x86"
       LOCAL_MANIFEST:
         description: "Personal local manifest [repository or raw]:"
         required: true
-        default: 'https://github.com/sounddrill31/local_manifests_oxygen'
+        default: 'https://github.com/AbuRider/local_manifest.git'
       LOCAL_MANIFEST_BRANCH:
         description: "Personal local manifest's branch:"
         required: false
-        default: 'lineage-21-qpr3'
+        default: 'matrixx'
       DEVICE_NAME:
         description: "Device's codename:"
         required: true
-        default: "oxygen"
+        default: "earth"
       PRODUCT_NAME:
         description: "Product to build:"
         required: true
-        default: "oxygen"
+        default: "lineage_earth"
       BUILD_COMMAND:
         description: 'Command to be used for compiling:'
         required: true
-        default: 'mka bacon'
+        default: 'brunch earth'
       BUILD_TYPE:
         description: 'Type of build:'
         required: true
@@ -507,8 +508,8 @@ jobs:
         fi && \
 
         # Set up build environment
-        export BUILD_USERNAME=${{ github.actor }} ; \
-        export BUILD_HOSTNAME=crave ; \
+        export BUILD_USERNAME=rora ; \
+        export BUILD_HOSTNAME=umbrella ; \
         source build/envsetup.sh && \
 
         echo "Repository: ${{ github.repository }}"; \
